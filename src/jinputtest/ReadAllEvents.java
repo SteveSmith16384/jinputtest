@@ -73,9 +73,9 @@ public class ReadAllEvents {
 							buffer.append(value);
 						} else {
 							if (value == 1.0f) {
-								buffer.append("On");
+								buffer.append("On (" + value + ")");
 							} else {
-								buffer.append("Off");
+								buffer.append("Off (" + value + ")");
 							}
 						}
 						System.out.println(buffer.toString());
