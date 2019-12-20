@@ -20,17 +20,20 @@ public class ReadAllEvents {
 	public ReadAllEvents() {
 		System.out.println("Starting...");
 
-		System.setProperty("net.java.games.input.librarypath", new File("./libs/jinput-2.0.9-natives-all").getAbsolutePath());
+		System.setProperty("net.java.games.input.librarypath", new File("/home/pi/code/jinputtest/libs").getAbsolutePath());
 		
-		while (true) {
-			/* Get the available controllers */
 			Controller[] controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
-			
 			if (controllers.length == 0) {
 				System.out.println("Found no controllers.");
 				System.exit(0);
 			}
+				System.out.println("Found " + controllers.length + " controllers.");
 
+
+		while (true) {
+			/* Get the available controllers */
+			controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
+			
 			for (int i = 0; i < controllers.length; i++) {
 				/* Remember to poll each one */
 				controllers[i].poll();
@@ -55,7 +58,7 @@ public class ReadAllEvents {
 					 * exactly *when* an event happened just the order.
 					 */
 					float value = event.getValue();
-					if (value == 0 || value < -0.5 || value > 0.5) {
+					//if (value == 0 || value < -0.5 || value > 0.5) {
 						StringBuffer buffer = new StringBuffer(controllers[i].getName());
 						buffer.append(" at ");
 						buffer.append(event.getNanos()).append(", ");
@@ -76,7 +79,7 @@ public class ReadAllEvents {
 							}
 						}
 						System.out.println(buffer.toString());
-					}
+					//}
 				}
 			}
 
