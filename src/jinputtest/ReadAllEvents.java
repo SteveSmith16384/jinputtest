@@ -20,7 +20,8 @@ public class ReadAllEvents {
 	public ReadAllEvents() {
 		System.out.println("Starting...");
 
-		System.setProperty("net.java.games.input.librarypath", new File("/home/pi/code/jinputtest/libs").getAbsolutePath());
+		//System.setProperty("net.java.games.input.librarypath", new File("/home/pi/code/jinputtest/libs").getAbsolutePath());
+		System.setProperty("net.java.games.input.librarypath", new File("libs").getAbsolutePath());
 		
 			Controller[] controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
 			if (controllers.length == 0) {
