@@ -59,7 +59,7 @@ public class ReadAllEvents {
 					 * exactly *when* an event happened just the order.
 					 */
 					float value = event.getValue();
-					//if (value == 0 || value < -0.5 || value > 0.5) {
+					if (value == 0 || value < -0.2 || value > 0.2) {
 						StringBuffer buffer = new StringBuffer(controllers[i].getName());
 						buffer.append(" at ");
 						buffer.append(event.getNanos()).append(", ");
@@ -80,7 +80,7 @@ public class ReadAllEvents {
 							}
 						}
 						System.out.println(buffer.toString());
-					//}
+					}
 				}
 			}
 
