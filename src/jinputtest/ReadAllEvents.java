@@ -22,19 +22,19 @@ public class ReadAllEvents {
 
 		//System.setProperty("net.java.games.input.librarypath", new File("/home/pi/code/jinputtest/libs").getAbsolutePath());
 		System.setProperty("net.java.games.input.librarypath", new File("libs").getAbsolutePath());
-		
-			Controller[] controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
-			if (controllers.length == 0) {
-				System.out.println("Found no controllers.");
-				System.exit(0);
-			}
-				System.out.println("Found " + controllers.length + " controllers.");
+
+		Controller[] controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
+		if (controllers.length == 0) {
+			System.out.println("Found no controllers.");
+			System.exit(0);
+		}
+		System.out.println("Found " + controllers.length + " controllers.");
 
 
 		while (true) {
 			/* Get the available controllers */
 			controllers = ControllerEnvironment.getDefaultEnvironment().getControllers();
-			
+
 			for (int i = 0; i < controllers.length; i++) {
 				/* Remember to poll each one */
 				controllers[i].poll();
@@ -91,7 +91,6 @@ public class ReadAllEvents {
 			try {
 				Thread.sleep(20);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
